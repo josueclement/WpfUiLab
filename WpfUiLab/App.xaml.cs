@@ -10,4 +10,3 @@ namespace WpfUiLab;
 public partial class App : Application
 {
 }
-
