@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wpf.Ui;
 
 namespace WpfUiLab;
 
@@ -11,8 +14,27 @@ public partial class App
 {
     // ReSharper disable once InconsistentNaming
     private static readonly IHost _host = Host.CreateDefaultBuilder()
+        .ConfigureAppConfiguration(c =>
+        {
+            var basePath =
+                Path.GetDirectoryName(AppContext.BaseDirectory)
+                ?? throw new DirectoryNotFoundException(
+                    "Unable to find the base directory of the application."
+                );
+            _ = c.SetBasePath(basePath);
+        })
         .ConfigureServices((_1, services) =>
         {
+            // Theme manipulation
+            _ = services.AddSingleton<IThemeService, ThemeService>();
+            
+            // Service containing navigation, same as INavigationWindow... but without window
+            _ = services.AddSingleton<INavigationService, NavigationService>();
+            
+            // // Main window with navigation
+            // _ = services.AddSingleton<INavigationWindow, MainWindow>();
+            // _ = services.AddSingleton<ViewModels.MainWindowViewModel>();
+            
             _ = services.AddSingleton<MainWindow>();
         })
         .Build();
@@ -22,7 +44,7 @@ public partial class App
     {
         _host.Start();
         
-        GetRequiredService<MainWindow>().Show();
+        Services.GetRequiredService<MainWindow>().Show();
     }
 
     /// <inheritdoc />
@@ -31,15 +53,9 @@ public partial class App
         _host.StopAsync().Wait();
         _host.Dispose();
     }
-    
+
     /// <summary>
-    /// Gets registered service.
+    /// Get services
     /// </summary>
-    /// <typeparam name="T">Type of the service to get.</typeparam>
-    /// <returns>Instance of the service or <see langword="null"/>.</returns>
-    public static T GetRequiredService<T>()
-        where T : class
-    {
-        return _host.Services.GetRequiredService<T>();
-    }
+    public static IServiceProvider Services => _host.Services;
 }

@@ -4,22 +4,37 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:mdi="clr-namespace:MdiWpf;assembly=MdiWpf"
                  mc:Ignorable="d"
                  Height="450"
                  Width="800">
     <DockPanel>
-        <ui:TitleBar DockPanel.Dock="Top" />
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="New" />
-                <MenuItem Header="Open" />
-                <Separator />
-                <MenuItem Header="Exit" />
-            </MenuItem>
-        </Menu>
-        <ui:Button Content="test button"
-                   Appearance="Primary"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+        <ui:TitleBar DockPanel.Dock="Top"
+                     Title="Window title">
+            <ui:TitleBar.Icon>
+                <ui:ImageIcon Source="{mdi:IconSource IconName='home-city', Brush=White}" />
+            </ui:TitleBar.Icon>
+        </ui:TitleBar>
+        
+        <ui:NavigationView>
+            <ui:NavigationView.Header>
+                <ui:BreadcrumbBar
+                    Margin="42,32,0,0"
+                    FontSize="28"
+                    FontWeight="DemiBold" />
+            </ui:NavigationView.Header>
+        </ui:NavigationView>
+        <!-- <Menu DockPanel.Dock="Top"> -->
+        <!--     <MenuItem Header="File"> -->
+        <!--         <MenuItem Header="New" /> -->
+        <!--         <MenuItem Header="Open" /> -->
+        <!--         <Separator /> -->
+        <!--         <MenuItem Header="Exit" /> -->
+        <!--     </MenuItem> -->
+        <!-- </Menu> -->
+        <!-- <ui:Button Content="test button" -->
+        <!--            Appearance="Primary" -->
+        <!--            VerticalAlignment="Center" -->
+        <!--            HorizontalAlignment="Center"/> -->
     </DockPanel>
 </ui:FluentWindow>
