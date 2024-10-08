@@ -19,7 +19,8 @@
         </ui:TitleBar>
         
         <ui:NavigationView MenuItemsSource="{Binding NavigationItems}"
-                           FooterMenuItemsSource="{Binding FooterNavigationItems}">
+                           FooterMenuItemsSource="{Binding FooterNavigationItems}"
+                           IsPaneOpen="False">
             <ui:NavigationView.Header>
                 <ui:BreadcrumbBar
                     Margin="42,32,0,0"

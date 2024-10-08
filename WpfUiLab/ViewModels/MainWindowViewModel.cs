@@ -5,6 +5,6 @@ namespace WpfUiLab.ViewModels;
 
 public class MainWindowViewModel : ObservableObject
 {
-    public ObservableCollection<object> NavigationItems { get; } = new ();
-    public ObservableCollection<object> FooterNavigationItems { get; } = new ();
+    public ObservableCollection<object> NavigationItems { get; } = [];
+    public ObservableCollection<object> FooterNavigationItems { get; } = [];
 }
