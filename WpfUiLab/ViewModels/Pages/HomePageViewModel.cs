@@ -14,7 +14,6 @@ public class HomePageViewModel : ObservableObject
     {
         _navigationService = navigationService;
         GoToSettingsCommand = new AsyncRelayCommand(GoToSettings);
-        
     }
     
     public AsyncRelayCommand GoToSettingsCommand { get; }

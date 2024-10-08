@@ -9,5 +9,6 @@ public partial class HomePage : Page
     {
         InitializeComponent();
         DataContext = viewModel;
+        
     }
 }

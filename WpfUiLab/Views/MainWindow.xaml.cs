@@ -10,7 +10,7 @@ namespace WpfUiLab.Views;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : INavigationWindow
+public partial class MainWindow// : INavigationWindow
 {
     public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService)
     {
@@ -20,6 +20,14 @@ public partial class MainWindow : INavigationWindow
         Loaded += (sender, args) =>
         {
             navigationService.Navigate(typeof(HomePage));
+        };
+        RootNavigation.Navigating += (sender, args) =>
+        {
+
+        };
+        RootNavigation.Navigated += (sender, args) =>
+        {
+
         };
         //navigationService.Navigate(typeof(HomePage));
 
@@ -31,25 +39,25 @@ public partial class MainWindow : INavigationWindow
         // );
     }
     
-    public INavigationView GetNavigation()
-    {
-        throw new NotImplementedException();
-    }
-    
-    public bool Navigate(Type pageType)
-        => RootNavigation.Navigate(pageType);
-    
-    public void SetServiceProvider(IServiceProvider serviceProvider)
-    {
-        throw new NotImplementedException();
-    }
-    
-    public void SetPageService(INavigationViewPageProvider navigationViewPageProvider)
-        => RootNavigation.SetPageProviderService(navigationViewPageProvider);
-    
-    public void ShowWindow()
-        => Show();
-    
-    public void CloseWindow()
-        => Close();
+    // public INavigationView GetNavigation()
+    // {
+    //     throw new NotImplementedException();
+    // }
+    //
+    // public bool Navigate(Type pageType)
+    //     => RootNavigation.Navigate(pageType);
+    //
+    // public void SetServiceProvider(IServiceProvider serviceProvider)
+    // {
+    //     throw new NotImplementedException();
+    // }
+    //
+    // public void SetPageService(INavigationViewPageProvider navigationViewPageProvider)
+    //     => RootNavigation.SetPageProviderService(navigationViewPageProvider);
+    //
+    // public void ShowWindow()
+    //     => Show();
+    //
+    // public void CloseWindow()
+    //     => Close();
 }
