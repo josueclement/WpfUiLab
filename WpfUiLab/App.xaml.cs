@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
+using WpfUiLab.ViewModels;
+using WpfUiLab.Views;
 
 namespace WpfUiLab;
 
@@ -36,6 +38,7 @@ public partial class App
             // _ = services.AddSingleton<ViewModels.MainWindowViewModel>();
             
             _ = services.AddSingleton<MainWindow>();
+            _ = services.AddSingleton<MainWindowViewModel>();
         })
         .Build();
 
@@ -57,5 +60,6 @@ public partial class App
     /// <summary>
     /// Get services
     /// </summary>
+    // ReSharper disable once MemberCanBePrivate.Global
     public static IServiceProvider Services => _host.Services;
 }

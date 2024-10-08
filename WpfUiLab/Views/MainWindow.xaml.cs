@@ -9,17 +9,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfUiLab.ViewModels;
 
-namespace WpfUiLab;
+namespace WpfUiLab.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow
 {
-    public MainWindow()
+    public MainWindow(MainWindowViewModel viewModel)
     {
         InitializeComponent();
+        DataContext = viewModel;
         // Wpf.Ui.Appearance.ApplicationThemeManager.Apply(
         //     Wpf.Ui.Appearance.ApplicationTheme.Dark, // Theme type
         //     Wpf.Ui.Controls.WindowBackdropType.Mica,  // Background type
