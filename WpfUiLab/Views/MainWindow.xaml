@@ -18,7 +18,8 @@
             </ui:TitleBar.Icon>
         </ui:TitleBar>
         
-        <ui:NavigationView MenuItemsSource="{Binding NavigationItems}"
+        <ui:NavigationView x:Name="RootNavigation"
+                           MenuItemsSource="{Binding NavigationItems}"
                            FooterMenuItemsSource="{Binding FooterNavigationItems}"
                            IsPaneOpen="False">
             <ui:NavigationView.Header>

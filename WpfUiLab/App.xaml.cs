@@ -5,8 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
+using Wpf.Ui.Abstractions;
+using Wpf.Ui.DependencyInjection;
 using WpfUiLab.ViewModels;
+using WpfUiLab.ViewModels.Pages;
 using WpfUiLab.Views;
+using WpfUiLab.Views.Pages;
 
 namespace WpfUiLab;
 
@@ -28,6 +32,8 @@ public partial class App
         })
         .ConfigureServices((_1, services) =>
         {
+            _ = services.AddNavigationViewPageProvider();
+            
             // Theme manipulation
             _ = services.AddSingleton<IThemeService, ThemeService>();
             
@@ -37,9 +43,14 @@ public partial class App
             // // Main window with navigation
             // _ = services.AddSingleton<INavigationWindow, MainWindow>();
             // _ = services.AddSingleton<ViewModels.MainWindowViewModel>();
-            
+            // _ = services.AddSingleton<INavigationWindow, MainWindow>();
             _ = services.AddSingleton<MainWindow>();
             _ = services.AddSingleton<MainWindowViewModel>();
+
+            _ = services.AddSingleton<HomePage>();
+            _ = services.AddSingleton<HomePageViewModel>();
+            _ = services.AddSingleton<SettingsPage>();
+            _ = services.AddSingleton<SettingsPageViewModel>();
         })
         .Build();
 
