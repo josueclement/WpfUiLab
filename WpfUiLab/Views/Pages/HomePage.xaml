@@ -4,15 +4,44 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:mdi="clr-namespace:MdiWpf;assembly=MdiWpf"
+      xmlns:viewModels="clr-namespace:WpfUiLab.ViewModels.Pages"
       mc:Ignorable="d"
       d:DesignHeight="300"
       d:DesignWidth="300"
       ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
       ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      d:DataContext="{d:DesignInstance {x:Type viewModels:HomePageViewModel}}">
     <Grid>
-        <ui:TextBlock Text="Welcome to home page !"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Center" />
+        <ScrollViewer>
+            <StackPanel Margin="30 0">
+                <ui:CardAction Margin="2" Icon="{ui:SymbolIcon Fluent24}">
+                    <ui:CardAction.Content>
+                        <StackPanel>
+                            <ui:TextBlock Text="Title" FontWeight="Bold" />
+                            <ui:TextBlock Text="Description of the card" />
+                        </StackPanel>
+                    </ui:CardAction.Content>
+                </ui:CardAction>
+                <ui:CardAction Margin="2"
+                               Command="{Binding GoToSettingsCommand}">
+                    <ui:CardAction.Icon>
+                        <ui:ImageIcon Source="{mdi:IconSource IconName='key-chain', Brush=White}" />
+                    </ui:CardAction.Icon>
+                    <ui:CardAction.Content>
+                        <StackPanel>
+                            <ui:TextBlock Text="Title" FontWeight="Bold" />
+                            <ui:TextBlock Text="Description of the card" />
+                        </StackPanel>
+                    </ui:CardAction.Content>
+                </ui:CardAction>
+                <ui:CardAction UseLayoutRounding="False" Content="test" Margin="2" />
+                <ui:CardAction Content="test" Margin="2" />
+                <ui:CardAction Content="test" Margin="2" />
+                <ui:CardAction Content="test" Margin="2" />
+                <ui:CardAction Content="test" Margin="2" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

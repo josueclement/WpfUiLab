@@ -7,8 +7,9 @@
                  xmlns:mdi="clr-namespace:MdiWpf;assembly=MdiWpf"
                  xmlns:viewModels="clr-namespace:WpfUiLab.ViewModels"
                  mc:Ignorable="d"
-                 Height="450"
-                 Width="800"
+                 Height="650"
+                 Width="1000"
+                 WindowStartupLocation="CenterScreen"
                  d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
     <DockPanel>
         <ui:TitleBar DockPanel.Dock="Top"
