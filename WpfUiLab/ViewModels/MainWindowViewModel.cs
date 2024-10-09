@@ -29,6 +29,12 @@ public class MainWindowViewModel : ObservableObject
             Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
             TargetPageType = typeof(HomePage)
         });
+        NavigationItems.Add(new NavigationViewItem
+        {
+            Content = "Users",
+            Icon = new SymbolIcon { Symbol = SymbolRegular.Person24 },
+            TargetPageType = typeof(UsersPage)
+        });
         
         FooterNavigationItems.Add(new NavigationViewItem
         {

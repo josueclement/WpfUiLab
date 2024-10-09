@@ -14,34 +14,58 @@
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       d:DataContext="{d:DesignInstance {x:Type viewModels:HomePageViewModel}}">
     <Grid>
-        <ScrollViewer>
-            <StackPanel Margin="30 0">
-                <ui:CardAction Margin="2" Icon="{ui:SymbolIcon Fluent24}">
-                    <ui:CardAction.Content>
-                        <StackPanel>
-                            <ui:TextBlock Text="Title" FontWeight="Bold" />
-                            <ui:TextBlock Text="Description of the card" />
-                        </StackPanel>
-                    </ui:CardAction.Content>
-                </ui:CardAction>
-                <ui:CardAction Margin="2"
-                               Command="{Binding GoToSettingsCommand}">
-                    <ui:CardAction.Icon>
-                        <ui:ImageIcon Source="{mdi:IconSource IconName='key-chain', Brush=White}" />
-                    </ui:CardAction.Icon>
-                    <ui:CardAction.Content>
-                        <StackPanel>
-                            <ui:TextBlock Text="Title" FontWeight="Bold" />
-                            <ui:TextBlock Text="Description of the card" />
-                        </StackPanel>
-                    </ui:CardAction.Content>
-                </ui:CardAction>
-                <ui:CardAction UseLayoutRounding="False" Content="test" Margin="2" />
-                <ui:CardAction Content="test" Margin="2" />
-                <ui:CardAction Content="test" Margin="2" />
-                <ui:CardAction Content="test" Margin="2" />
-                <ui:CardAction Content="test" Margin="2" />
-            </StackPanel>
-        </ScrollViewer>
+        <StackPanel Margin="30 0">
+            <ui:CardAction Margin="2" Icon="{ui:SymbolIcon Fluent24}">
+                <ui:CardAction.Content>
+                    <StackPanel>
+                        <ui:TextBlock Text="Title" FontWeight="Bold" />
+                        <ui:TextBlock Text="Description of the card" />
+                    </StackPanel>
+                </ui:CardAction.Content>
+            </ui:CardAction>
+            <ui:CardAction Margin="2"
+                           Command="{Binding GoToSettingsCommand}">
+                <ui:CardAction.Icon>
+                    <ui:ImageIcon Source="{mdi:IconSource IconName='key-chain', Brush=White}" />
+                </ui:CardAction.Icon>
+                <ui:CardAction.Content>
+                    <StackPanel>
+                        <ui:TextBlock Text="Title" FontWeight="Bold" />
+                        <ui:TextBlock Text="Description of the card" />
+                    </StackPanel>
+                </ui:CardAction.Content>
+            </ui:CardAction>
+            <ui:CardAction UseLayoutRounding="False" Content="test" Margin="2" />
+            <ui:CardAction Content="test" Margin="2" />
+            <ui:CardAction Content="test" Margin="2" />
+            <ui:CardAction Content="test" Margin="2" />
+            <ui:CardAction Content="test" Margin="2" />
+            <ui:CardControl
+                Margin="4"
+                Padding="20,10,20,10"
+                Icon="{ui:SymbolIcon FlashSettings24}"
+                CornerRadius="0">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <ui:TextBlock
+                            Margin="0"
+                            FontTypography="BodyStrong"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                            Text="This is the header text"
+                            TextWrapping="WrapWithOverflow" />
+                        <ui:TextBlock
+                            Appearance="Secondary"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="This is a description text."
+                            TextWrapping="WrapWithOverflow" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch
+                    HorizontalContentAlignment="Left"
+                    IsEnabled="True"
+                    OffContent="Off"
+                    OnContent="On" />
+            </ui:CardControl>
+        </StackPanel>
     </Grid>
 </Page>

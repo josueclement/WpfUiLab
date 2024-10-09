@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
-using Wpf.Ui.Abstractions;
 using Wpf.Ui.DependencyInjection;
 using WpfUiLab.ViewModels;
 using WpfUiLab.ViewModels.Pages;
@@ -40,15 +39,15 @@ public partial class App
             // Service containing navigation, same as INavigationWindow... but without window
             _ = services.AddSingleton<INavigationService, NavigationService>();
             
-            // // Main window with navigation
-            // _ = services.AddSingleton<INavigationWindow, MainWindow>();
-            // _ = services.AddSingleton<ViewModels.MainWindowViewModel>();
-            // _ = services.AddSingleton<INavigationWindow, MainWindow>();
             _ = services.AddSingleton<MainWindow>();
             _ = services.AddSingleton<MainWindowViewModel>();
 
             _ = services.AddSingleton<HomePage>();
             _ = services.AddSingleton<HomePageViewModel>();
+            _ = services.AddSingleton<UsersPage>();
+            _ = services.AddSingleton<UsersPageViewModel>();
+            _ = services.AddTransient<UserFormPage>();
+            _ = services.AddTransient<UserFormPageViewModel>();
             _ = services.AddSingleton<SettingsPage>();
             _ = services.AddSingleton<SettingsPageViewModel>();
         })
