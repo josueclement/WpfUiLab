@@ -5,9 +5,12 @@ namespace WpfUiLab.Views.Pages;
 
 public partial class SettingsPage : Page
 {
-    public SettingsPage(SettingsPageViewModel viewModel, MainWindow mainWindow)
+    public SettingsPage(SettingsPageViewModel viewModel)
     {
         InitializeComponent();
-        DataContext = viewModel;
+        ViewModel = viewModel;
+        DataContext = this;
     }
+
+    public SettingsPageViewModel ViewModel { get; }
 }

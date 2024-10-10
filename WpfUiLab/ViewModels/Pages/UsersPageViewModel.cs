@@ -19,6 +19,6 @@ public class UsersPageViewModel : ObservableObject
 
     private void AddUser()
     {
-        _navigationService.Navigate(typeof(UserFormPage));
+        _navigationService.NavigateWithHierarchy(typeof(UserFormPage));
     }
 }

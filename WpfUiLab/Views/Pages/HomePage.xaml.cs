@@ -8,7 +8,9 @@ public partial class HomePage : Page
     public HomePage(HomePageViewModel viewModel)
     {
         InitializeComponent();
-        DataContext = viewModel;
-        
+        ViewModel = viewModel;
+        DataContext = this;
     }
+    
+    public HomePageViewModel ViewModel { get; }
 }

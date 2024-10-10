@@ -5,14 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:mdi="clr-namespace:MdiWpf;assembly=MdiWpf"
-      xmlns:viewModels="clr-namespace:WpfUiLab.ViewModels.Pages"
+      xmlns:pages="clr-namespace:WpfUiLab.Views.Pages"
       mc:Ignorable="d"
       d:DesignHeight="300"
       d:DesignWidth="300"
+      ui:NavigationView.HeaderContent="Home page"
       ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
       ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-      d:DataContext="{d:DesignInstance {x:Type viewModels:HomePageViewModel}}">
+      d:DataContext="{d:DesignInstance {x:Type pages:HomePage}}">
     <Grid>
         <StackPanel Margin="30 0">
             <ui:CardAction Margin="2" Icon="{ui:SymbolIcon Fluent24}">
@@ -24,7 +25,7 @@
                 </ui:CardAction.Content>
             </ui:CardAction>
             <ui:CardAction Margin="2"
-                           Command="{Binding GoToSettingsCommand}">
+                           Command="{Binding ViewModel.GoToSettingsCommand}">
                 <ui:CardAction.Icon>
                     <ui:ImageIcon Source="{mdi:IconSource IconName='key-chain', Brush=White}" />
                 </ui:CardAction.Icon>
