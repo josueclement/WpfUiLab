@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -67,6 +69,9 @@ public partial class App
     /// <inheritdoc />
     protected override void OnStartup(StartupEventArgs e)
     {
+        AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
+        TaskScheduler.UnobservedTaskException += TaskSchedulerOnUnobservedTaskException;
+        Current.DispatcherUnhandledException += CurrentOnDispatcherUnhandledException;
         _host.Start();
         
         Services.GetRequiredService<MainWindow>().Show();
@@ -75,6 +80,10 @@ public partial class App
     /// <inheritdoc />
     protected override void OnExit(ExitEventArgs e)
     {
+        AppDomain.CurrentDomain.UnhandledException -= CurrentDomainOnUnhandledException;
+        TaskScheduler.UnobservedTaskException -= TaskSchedulerOnUnobservedTaskException;
+        Current.DispatcherUnhandledException -= CurrentOnDispatcherUnhandledException;
+        
         _host.StopAsync().Wait();
         _host.Dispose();
     }
@@ -84,4 +93,28 @@ public partial class App
     /// </summary>
     // ReSharper disable once MemberCanBePrivate.Global
     public static IServiceProvider Services => _host.Services;
+
+    private void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
+        var logger = Services.GetRequiredService<ILogger<App>>();
+        if (e.ExceptionObject is Exception ex)
+            logger.LogError(ex, "Unhandled exception");
+        else
+            logger.LogError("Unhandled exception");
+        
+        MessageBox.Show(e.ExceptionObject.ToString());
+    }
+
+    private void TaskSchedulerOnUnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+    {
+        Services.GetRequiredService<ILogger<App>>().LogError(e.Exception, "Unobserved task exception");
+        MessageBox.Show(e.Exception.ToString());
+    }
+
+    private void CurrentOnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        Services.GetRequiredService<ILogger<App>>().LogError(e.Exception, "Dispatcher unhandled exception");
+        MessageBox.Show(e.Exception.ToString());
+        e.Handled = true;
+    }
 }
