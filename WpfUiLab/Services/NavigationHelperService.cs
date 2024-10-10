@@ -1,4 +1,6 @@
-﻿namespace WpfUiLab.Services;
+﻿using WpfUiLab.Controls;
+
+namespace WpfUiLab.Services;
 
 public class NavigationHelperService
 {

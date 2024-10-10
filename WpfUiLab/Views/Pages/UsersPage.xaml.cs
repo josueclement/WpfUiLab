@@ -1,9 +1,8 @@
-﻿using System.Windows.Controls;
-using WpfUiLab.ViewModels.Pages;
+﻿using WpfUiLab.ViewModels.Pages;
 
 namespace WpfUiLab.Views.Pages;
 
-public partial class UsersPage : Page
+public partial class UsersPage
 {
     public UsersPage(UsersPageViewModel viewModel)
     {

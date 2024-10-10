@@ -1,9 +1,8 @@
-﻿using System.Windows.Controls;
-using WpfUiLab.ViewModels.Pages;
+﻿using WpfUiLab.ViewModels.Pages;
 
 namespace WpfUiLab.Views.Pages;
 
-public partial class HomePage : Page
+public partial class HomePage
 {
     public HomePage(HomePageViewModel viewModel)
     {
@@ -11,6 +10,6 @@ public partial class HomePage : Page
         ViewModel = viewModel;
         DataContext = this;
     }
-    
+
     public HomePageViewModel ViewModel { get; }
 }

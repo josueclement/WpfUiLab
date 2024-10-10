@@ -1,9 +1,8 @@
-﻿using System.Windows.Controls;
-using WpfUiLab.ViewModels.Pages;
+﻿using WpfUiLab.ViewModels.Pages;
 
 namespace WpfUiLab.Views.Pages;
 
-public partial class SettingsPage : Page
+public partial class SettingsPage
 {
     public SettingsPage(SettingsPageViewModel viewModel)
     {
