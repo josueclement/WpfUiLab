@@ -4,6 +4,8 @@ using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using Wpf.Ui;
 using Wpf.Ui.DependencyInjection;
 using WpfUiLab.ViewModels;
@@ -31,6 +33,13 @@ public partial class App
         })
         .ConfigureServices((_1, services) =>
         {
+            _ = services.AddLogging(builder =>
+            {
+                builder.ClearProviders();
+                builder.SetMinimumLevel(LogLevel.Trace);
+                builder.AddNLog();
+            });
+            
             _ = services.AddNavigationViewPageProvider();
             
             // Theme manipulation

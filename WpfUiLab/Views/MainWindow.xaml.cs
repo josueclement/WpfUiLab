@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Logging;
 using Wpf.Ui;
 using Wpf.Ui.Abstractions;
 using Wpf.Ui.Controls;
@@ -12,8 +13,19 @@ namespace WpfUiLab.Views;
 /// </summary>
 public partial class MainWindow// : INavigationWindow
 {
-    public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService)
+    public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService, ILogger<MainWindow> logger)
     {
+        try
+        {
+            CrashMethod();
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "MainWindow constructor {name} {age}", "joe", 12);
+            logger.LogCritical(ex, "MainWindow constructor {name} {age}", "joe", 12);
+        }
+        
+        Console.WriteLine("test");
         InitializeComponent();
         DataContext = viewModel;
         navigationService.SetNavigationControl(RootNavigation);
@@ -37,6 +49,11 @@ public partial class MainWindow// : INavigationWindow
         //     Wpf.Ui.Controls.WindowBackdropType.Mica,  // Background type
         //     true                                      // Whether to change accents automatically
         // );
+    }
+
+    private void CrashMethod()
+    {
+        throw new InsufficientMemoryException("Insufficient memory");
     }
     
     // public INavigationView GetNavigation()
