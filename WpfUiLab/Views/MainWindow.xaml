@@ -5,13 +5,13 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
                  xmlns:mdi="clr-namespace:MdiWpf;assembly=MdiWpf"
-                 xmlns:viewModels="clr-namespace:WpfUiLab.ViewModels"
+                 xmlns:views="clr-namespace:WpfUiLab.Views"
                  mc:Ignorable="d"
                  Height="650"
                  Width="1000"
                  WindowStartupLocation="CenterScreen"
                  ExtendsContentIntoTitleBar="True"
-                 d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}">
+                 d:DataContext="{d:DesignInstance views:MainWindow}">
     <Grid>
         <ui:TitleBar Margin="55 0 0 0"
                      Title="Window title">
@@ -21,8 +21,8 @@
         </ui:TitleBar>
         
         <ui:NavigationView x:Name="RootNavigation"
-                           MenuItemsSource="{Binding NavigationItems}"
-                           FooterMenuItemsSource="{Binding FooterNavigationItems}"
+                           MenuItemsSource="{Binding ViewModel.NavigationItems}"
+                           FooterMenuItemsSource="{Binding ViewModel.FooterNavigationItems}"
                            BreadcrumbBar="{Binding ElementName=BreadcrumbBar}"
                            IsPaneOpen="False">
             <ui:NavigationView.Header>

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Wpf.Ui;
 using Wpf.Ui.DependencyInjection;
+using WpfUiLab.Services;
 using WpfUiLab.ViewModels;
 using WpfUiLab.ViewModels.Pages;
 using WpfUiLab.Views;
@@ -47,6 +48,7 @@ public partial class App
             
             // Service containing navigation, same as INavigationWindow... but without window
             _ = services.AddSingleton<INavigationService, NavigationService>();
+            _ = services.AddSingleton<NavigationHelperService>();
             
             _ = services.AddSingleton<MainWindow>();
             _ = services.AddSingleton<MainWindowViewModel>();
