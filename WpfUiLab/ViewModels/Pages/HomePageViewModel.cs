@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui;
 using WpfUiLab.Views.Pages;
@@ -13,12 +12,12 @@ public class HomePageViewModel : ObservableObject
     public HomePageViewModel(INavigationService navigationService)
     {
         _navigationService = navigationService;
-        GoToSettingsCommand = new AsyncRelayCommand(GoToSettings);
+        GoToSettingsCommand = new RelayCommand(GoToSettings);
     }
     
-    public AsyncRelayCommand GoToSettingsCommand { get; }
+    public RelayCommand GoToSettingsCommand { get; }
 
-    private async Task GoToSettings()
+    private void GoToSettings()
     {
         _navigationService.Navigate(typeof(SettingsPage));
     }
