@@ -45,8 +45,10 @@
             <ui:CardControl
                 Margin="4"
                 Padding="20,10,20,10"
-                Icon="{ui:SymbolIcon FlashSettings24}"
                 CornerRadius="0">
+                <ui:CardControl.Icon>
+                    <ui:ImageIcon Source="{mdi:IconSource IconName='key-chain', Brush=White}" />
+                </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
                         <ui:TextBlock

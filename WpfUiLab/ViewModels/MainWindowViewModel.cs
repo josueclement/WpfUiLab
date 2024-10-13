@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MdiWpf;
@@ -27,20 +28,23 @@ public class MainWindowViewModel : ObservableObject
         {
             Content = "Home",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
-            TargetPageType = typeof(HomePage)
+            TargetPageType = typeof(HomePage),
+            ToolTip = "Home"
         });
         NavigationItems.Add(new NavigationViewItem
         {
             Content = "Users",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Person24 },
-            TargetPageType = typeof(UsersPage)
+            TargetPageType = typeof(UsersPage),
+            ToolTip = "Users"
         });
         
         FooterNavigationItems.Add(new NavigationViewItem
         {
             Content = "Settings",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
-            TargetPageType = typeof(SettingsPage) 
+            TargetPageType = typeof(SettingsPage),
+            ToolTip = "Settings"
         });
         
         _isInitialized = true;

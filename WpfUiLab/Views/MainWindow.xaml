@@ -12,6 +12,13 @@
                  WindowStartupLocation="CenterScreen"
                  ExtendsContentIntoTitleBar="True"
                  d:DataContext="{d:DesignInstance views:MainWindow}">
+    
+    <ui:FluentWindow.Resources>
+        <Style TargetType="ui:NavigationViewItem">
+            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
+        </Style>
+    </ui:FluentWindow.Resources>
+    
     <Grid>
         <ui:TitleBar Margin="55 0 0 0"
                      Title="Window title">
