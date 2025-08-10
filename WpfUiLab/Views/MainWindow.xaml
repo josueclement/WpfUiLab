@@ -13,14 +13,15 @@
                  ExtendsContentIntoTitleBar="True"
                  d:DataContext="{d:DesignInstance views:MainWindow}">
     <Grid>
-        <ui:TitleBar Margin="55 0 0 0"
+        <ui:TitleBar x:Name="TitleBar"
                      Title="Window title">
             <ui:TitleBar.Icon>
-                <ui:ImageIcon Source="{mdi:IconSource IconName='home-city', Brush=White}" />
+                <ui:ImageIcon Source="{mdi:IconSource IconName='aspect-ratio', Brush=White}" />
             </ui:TitleBar.Icon>
         </ui:TitleBar>
         
         <ui:NavigationView x:Name="RootNavigation"
+                           TitleBar="{Binding ElementName=TitleBar}"
                            MenuItemsSource="{Binding ViewModel.NavigationItems}"
                            FooterMenuItemsSource="{Binding ViewModel.FooterNavigationItems}"
                            BreadcrumbBar="{Binding ElementName=BreadcrumbBar}">
