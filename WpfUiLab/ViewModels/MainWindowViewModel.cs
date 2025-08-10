@@ -28,23 +28,20 @@ public class MainWindowViewModel : ObservableObject
         {
             Content = "Home",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
-            TargetPageType = typeof(HomePage),
-            ToolTip = "Home"
+            TargetPageType = typeof(HomePage)
         });
         NavigationItems.Add(new NavigationViewItem
         {
             Content = "Users",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Person24 },
-            TargetPageType = typeof(UsersPage),
-            ToolTip = "Users"
+            TargetPageType = typeof(UsersPage)
         });
         
         FooterNavigationItems.Add(new NavigationViewItem
         {
             Content = "Settings",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
-            TargetPageType = typeof(SettingsPage),
-            ToolTip = "Settings"
+            TargetPageType = typeof(SettingsPage)
         });
         
         _isInitialized = true;

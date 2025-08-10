@@ -12,13 +12,6 @@
                  WindowStartupLocation="CenterScreen"
                  ExtendsContentIntoTitleBar="True"
                  d:DataContext="{d:DesignInstance views:MainWindow}">
-    
-    <ui:FluentWindow.Resources>
-        <Style TargetType="ui:NavigationViewItem" BasedOn="{StaticResource {x:Type ui:NavigationViewItem}}">
-            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
-        </Style>
-    </ui:FluentWindow.Resources>
-    
     <Grid>
         <ui:TitleBar Margin="55 0 0 0"
                      Title="Window title">
@@ -30,9 +23,7 @@
         <ui:NavigationView x:Name="RootNavigation"
                            MenuItemsSource="{Binding ViewModel.NavigationItems}"
                            FooterMenuItemsSource="{Binding ViewModel.FooterNavigationItems}"
-                           BreadcrumbBar="{Binding ElementName=BreadcrumbBar}"
-                           IsPaneOpen="False"
-                           IsPaneToggleVisible="True">
+                           BreadcrumbBar="{Binding ElementName=BreadcrumbBar}">
             <ui:NavigationView.Header>
                 <ui:BreadcrumbBar x:Name="BreadcrumbBar"
                     Margin="20 40 20 20"

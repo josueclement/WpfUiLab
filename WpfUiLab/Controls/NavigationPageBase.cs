@@ -10,11 +10,11 @@ public abstract class NavigationPageBase : Page
 
     public virtual void OnAppeared()
     {
-        _logger.LogTrace("OnAppeared: {type}", GetType().Name);
+        _logger.LogDebug("OnAppeared: {type}", GetType().Name);
     }
 
     public virtual void OnDisappeared()
     {
-        _logger.LogTrace("OnDisappeared: {type}", GetType().Name);
+        _logger.LogDebug("OnDisappeared: {type}", GetType().Name);
     }
 }
